@@ -2,13 +2,21 @@
 import { useState } from "react";
 
 export default function FormTask() {
-    const [tile, setTitle] = useState("");
+    const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(tile, description);
-    }
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/tasks/`, {
+            method: 'POST',
+            body: JSON.stringify({title, description}),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        const data = await res.json()
+        console.log(data);
+    };
 
 
     return (
