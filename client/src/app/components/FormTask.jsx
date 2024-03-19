@@ -24,8 +24,8 @@ export default function FormTask({ onTaskAdded }) {
 
 
     return (
-        <div className="bg-slate-200 p-7">
-            <form onSubmit={handleSubmit}>
+        <div className="bg-slate-200 p-7"  style={{ height: '300px' }}>
+            <form onSubmit={handleSubmit} className="task-form">
                 <h1 className="text-black font-bold">Añadir tarea</h1>
                 <label htmlFor="title" className="text-sm text-black">Titulo:</label>
                 <input 
@@ -45,11 +45,12 @@ export default function FormTask({ onTaskAdded }) {
                 />
                 <button
                     type="submit"
-                    className="bg-indigo-500 text-white rouded-md p-2 mb-2 block w-full"
+                    className="bg-indigo-500 text-white rounded-md p-2 mb-2 block w-full"
                 >
                     Guardar
                 </button>
             </form>
         </div>
     );
+    
 }
